@@ -81,11 +81,47 @@ public class FracCalc {
             rsWhole = Integer.parseInt(rightSide);
         }
 
-        result = "whole:" + rsWhole + " numerator:" + rsNum + " denominator:" + rsDenom;
+        // result = "whole:" + rsWhole + " numerator:" + rsNum + " denominator:" + rsDenom;
 
-        return result;
+        int resultWhole = 0;
+        int resultNum = 0;
+        int resultDenom = 1;
+
+        switch (operator.toCharArray()[0]) {
+            case '+':
+                resultWhole = lsWhole + rsWhole;
+                resultDenom = lsDenom * rsDenom;
+                resultNum = (lsNum * rsDenom) + (rsNum * lsDenom);
+                break;
+
+            case '-':
+                resultWhole = lsWhole - rsWhole;
+                resultDenom = lsDenom * rsDenom;
+                resultNum = (lsNum * rsDenom) - (rsNum * lsDenom);
+                break;
+
+            case '*':
+                //resultWhole = lsWhole * rsWhole;
+                resultWhole = 0;
+                int commonDenom = lsDenom * rsDenom;
+                resultDenom = commonDenom * commonDenom;
+                resultNum = ((lsWhole * lsDenom + lsNum) * rsDenom) * ((rsWhole * rsDenom + rsNum) * lsDenom);
+                break;
+
+            case '/':
+                break;
+
+            default:
+                break;
+
+        }
+
+        return formatResult(resultWhole, resultNum, resultDenom);
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
+    private static String formatResult(int w, int n, int d) {
+        return w + "_" + n + "/" + d;
+    }
 
 }
