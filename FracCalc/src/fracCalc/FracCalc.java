@@ -26,17 +26,45 @@ public class FracCalc {
         String result = "";
         Scanner tokens = new Scanner(input);
 
+        // Break string into operands and operator.
         String leftSide = tokens.next();
         String operator = tokens.next();
         String rightSide = tokens.next();
+
+        // Left hand operand.
+
+        int lsWhole = 0;
+        int lsNum = 0;
+        int lsDenom = 1;
+
+        // Check for landmarks.
+        int underscore = leftSide.indexOf('_');
+        int slash = leftSide.indexOf('/');
+
+        if (underscore > 0) {
+            // We have whole and fractional parts.
+            lsWhole = Integer.parseInt(leftSide.substring(0, underscore));
+
+            lsNum = Integer.parseInt(leftSide.substring(underscore + 1, slash));
+            lsDenom = Integer.parseInt(leftSide.substring(slash + 1));
+        } else if (slash > 0) {
+            // We only have the fractional part.
+            lsNum = Integer.parseInt(leftSide.substring(0, slash));
+            lsDenom = Integer.parseInt(leftSide.substring(slash + 1));
+        } else {
+            // It's a whole number.
+            lsWhole = Integer.parseInt(leftSide);
+        }
+
+        // Right hand operand.
 
         int rsWhole = 0;
         int rsNum = 0;
         int rsDenom = 1;
 
         // Check for landmarks.
-        int underscore = rightSide.indexOf('_');
-        int slash = rightSide.indexOf('/');
+        underscore = rightSide.indexOf('_');
+        slash = rightSide.indexOf('/');
 
         if (underscore > 0) {
             // We have whole and fractional parts.
