@@ -7,8 +7,9 @@ public class FracCalc {
     public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
-        process();
-
+        Scanner input = new Scanner(System.in);
+        String eq = input.nextLine();
+        System.out.println(produceAnswer(eq));
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -22,27 +23,18 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-        int sp = input.indexOf(' ');
-        String lop = input.substring(0, sp);
+        String result = "";
+        Scanner tokens = new Scanner(input);
 
-        String rest = input.substring(sp + 1);
-        sp = rest.indexOf(' ');
-        String op = rest.substring(0, sp);
+        String leftSide = tokens.next();
+        String operator = tokens.next();
+        String rightSide = tokens.next();
 
-        String rop = rest.substring(sp + 1);
-
-        String result = rop;
+        result = rightSide;
         
         return result;
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
-    public static void process() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("> ");
-        String eq = input.nextLine();
-        // System.out.println("  " + eq + " = " + produceAnswer(eq));
-        System.out.println(produceAnswer(eq));
-    }
-    
+
 }
