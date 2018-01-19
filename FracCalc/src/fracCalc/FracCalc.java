@@ -30,8 +30,31 @@ public class FracCalc {
         String operator = tokens.next();
         String rightSide = tokens.next();
 
-        result = rightSide;
-        
+        int rsWhole = 0;
+        int rsNum = 0;
+        int rsDenom = 1;
+
+        // Check for landmarks.
+        int underscore = rightSide.indexOf('_');
+        int slash = rightSide.indexOf('/');
+
+        if (underscore > 0) {
+            // We have whole and fractional parts.
+            rsWhole = Integer.parseInt(rightSide.substring(0, underscore));
+
+            rsNum = Integer.parseInt(rightSide.substring(underscore + 1, slash));
+            rsDenom = Integer.parseInt(rightSide.substring(slash + 1));
+        } else if (slash > 0) {
+            // We only have the fractional part.
+            rsNum = Integer.parseInt(rightSide.substring(0, slash));
+            rsDenom = Integer.parseInt(rightSide.substring(slash + 1));
+        } else {
+            // It's a whole number.
+            rsWhole = Integer.parseInt(rightSide);
+        }
+
+        result = "whole:" + rsWhole + " numerator:" + rsNum + " denominator:" + rsDenom;
+
         return result;
     }
 
