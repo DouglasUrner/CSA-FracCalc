@@ -4,9 +4,17 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-// To run all tests, just click somewhere inside this file, and click the Play button
-// The results will appear categorized by checkpoint.  Your code should pass
-// all tests for the checkpoint you're submitting AND ALL PRIOR CHECKPOINTS
+/**
+ * To run the test suite for the first time, right-click (control-click on a
+ * Mac with a single button mouse) anywhere in the file, then select
+ * Run FracCalcTestALL from the context menu. For subsequent runs you can either
+ * continue to right-click or use the green right-arrow (play) button on the
+ * navigation bar.
+ *
+ * The test results will appear below, grouped by checkpoint. Your code should
+ * be passing all of the tests for the current checkpoint and all of the
+ * preceeding checkpoints.
+ */
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
