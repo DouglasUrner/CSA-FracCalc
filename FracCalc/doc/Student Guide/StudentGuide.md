@@ -110,14 +110,12 @@ Getting Started
 
 4.  From the Welcome dialog, choose Import Project.
 
-    ![](./media/image1.png){width="4.916666666666667in"
-    height="3.5704363517060367in"}
+    ![](./media/image1.png)
 
 5.  In the Select File or Directory to Import dialog chose your FracCalc
     folder. Then click OK.\
     \
-    ![](./media/image2.png){width="4.375in"
-    height="4.114583333333333in"}
+    ![](./media/image2.png)
 
 6.  Choose Next to accept the defaults in the resulting dialogs
 
@@ -126,12 +124,7 @@ Getting Started
 8.  You should have the project imported in the project pane on the left
     hand side. You will do your work in **FracCalc.java**.
 
-![](./media/image3.png){width="3.65625in" height="5.3125in"}
-
-9.  Add a **test** directory: right-click on FracCalc in the project
-    pane and select New \> Directory and name it **test.** Then
-    right-click on the test directory and choose Mark Directory As \>
-    Test Sources Root.
+![](./media/image3.png)
 
 10. Right-click on the FracCalcTestHelper.java file and select Add
     Library.
@@ -151,50 +144,54 @@ Checkpoints
 Checkpoint 1: Parsing one line of input
 ---------------------------------------
 
--   Your main() method creates a Scanner, reads one line of input, and
-    passes that input to *produceAnswer*.
+-   The *main*() method creates a Scanner, uses it to read one line of input, and
+    passes that input to *produceAnswer*().
 
--   *produceAnswer* breaks up that line of input into three Strings: the
-    first operand (fraction), the operator (+ - \* /), and the second
-    operand (fraction). Each of these Strings should be stored in
-    variables inside *produceAnswer*.
+-   *produceAnswer*() breaks the line of input into three Strings:
+    - the first operand (fraction),
+    - the operator (+ - \* /),
+    - and the second operand (fraction).
+    
+    Each of these Strings should be stored in
+    variables inside *produceAnswer*().
 
--   *produceAnswer* returns the second operand. For example,
-    produceAnswer("1\_2/3 + 4\_5/6") returns "4\_5/6".
+-   *produceAnswer*() returns the second operand. For example,
+    *produceAnswer*("1\_2/3 + 4\_5/6") should return "4\_5/6".
 
--   main() prints the result returned by *produceAnswer*
+-   Finally, *main*() prints the result returned by *produceAnswer*()
 
-> **Checkpoint 2: Multiple lines of input, parsing fractions**
+Checkpoint 2: Multiple lines of input, parsing fractions
+--------------------------------------------------------
 
--   Your main() method now accepts input from the user multiple times
+-   Your *main*() method now accepts input from the user multiple times
     (until the user types "quit")
 
--   For each line of input, main calls *produceAnswer*() and prints the
+-   For each line of input, *main*() calls *produceAnswer*() and prints the
     returned result
 
--   This time, *produceAnswer* must further parse each operand into 3
+-   This time, *produceAnswer*() must further parse each operand into 3
     integer variables, one each for the numerator, denominator, and
     whole portion (for mixed fractions or integers). Note that there are
     cases where not all 3 of these components are present (see below).
 
--   *produceAnswer* now must demonstrate you have parsed fractions
+-   *produceAnswer*() now must demonstrate you have parsed fractions
     properly by returning a string that describes each component of the
     second operand: the whole number portion (or 0 if not specified),
     the numerator (or 0 if not specified), and the denominator (or 1 if
     not specified). Examples:
 
-    -   produceAnswer(\"5\_3/4 - 6\_5/8\") returns \"whole:6 numerator:5
+    -   *produceAnswer*(\"5\_3/4 - 6\_5/8\") returns \"whole:6 numerator:5
         denominator:8\"
 
-    -   produceAnswer(\"-3/7 - 20\") returns \"whole:20 numerator:0
+    -   *produceAnswer*(\"-3/7 - 20\") returns \"whole:20 numerator:0
         denominator:1\"
 
-    -   produceAnswer("-32 - 27/21") returns \"whole:0 numerator:27
+    -   *produceAnswer*("-32 - 27/21") returns \"whole:0 numerator:27
         denominator:21\"
 
 > **Checkpoint 3: Evaluation**
 
--   *produceAnswer* must now evaluate the formula it is given
+-   *produceAnswer*() must now evaluate the formula it is given
     (performing addition, subtraction, multiplication, and division,
     based on the operator specified), and return the actual answer of
     that calculation (instead of just returning the second operand).
