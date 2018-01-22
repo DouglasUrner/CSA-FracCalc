@@ -14,6 +14,10 @@ import org.junit.runners.Suite;
  * The test results will appear below, grouped by checkpoint. Your code should
  * be passing all of the tests for the current checkpoint and all of the
  * preceding checkpoints.
+ *
+ * Note that for Checkpoint1 there will be some spurious passes in the tests for
+ * Checkpoint3 (you should be passing a all of the tests in Checkpoint1 and nine
+ * from Checkpoint3).
  */
 
 /*
