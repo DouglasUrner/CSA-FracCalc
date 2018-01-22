@@ -1,5 +1,7 @@
 package fracCalc;
 
+import java.util.Scanner;
+
 public class FracCalc {
 
   public static void main(String[] args) {
@@ -11,8 +13,20 @@ public class FracCalc {
      * - Call produceAnswer().
      * - Print the result.
      */
+    Scanner input = new Scanner(System.in);
+    //String prompt = "> ";  // TODO: why does cursor end up at col 0?
+    String prompt = "";
 
-    // TODO: Read input from the user and pass it to produceAnswer().
+    System.out.print(prompt);
+
+    while (true) {
+      String eq = input.nextLine();
+      if (eq.equalsIgnoreCase("quit")) {
+        break;
+      }
+      System.out.println(produceAnswer(eq));
+      System.out.print(prompt);
+    }
   }
 
   /*
@@ -49,9 +63,15 @@ public class FracCalc {
      * - There is an unknown operator or invalid operand.
      */
 
-    // TODO: Implement this function to produce the solution to the input.
+    Scanner tokens = new Scanner(input);
 
-    return input;
+    String left = tokens.next();
+    String op = tokens.next();
+    String right = tokens.next();
+
+    String result = right;
+
+    return result;
   }
 
   enum Part { whole, numerator, denominator }
