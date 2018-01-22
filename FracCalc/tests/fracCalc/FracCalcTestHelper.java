@@ -3,6 +3,8 @@
 // (powered by Fernflower decompiler)
 //
 
+// TODO: clean up magic numbers.
+
 package fracCalc;
 
 public class FracCalcTestHelper {
