@@ -4,7 +4,7 @@ public class FracCalc {
 
   public static void main(String[] args) {
 
-    /**
+    /*
      * Loop processing input strings until we get told to quit.
      * For each string:
      * - Check if we're done.
@@ -32,9 +32,9 @@ public class FracCalc {
    */
   static String produceAnswer(String input) {
 
-    /**
+    /*
      * Processing strategy:
-     * - Parse input into operand and operator tokens.
+     * - Use a Scanner to parse input into operand and operator tokens.
      * - Work with one pair at a time (either a pair of operands from input and
      *   their operator or the last result and a new operator and operand.
      * - Break operands into component parts.
@@ -70,8 +70,8 @@ public class FracCalc {
   /**
    * checkOperator() - check that we got a valid operator.
    *
-   * @param op
-   * @return
+   * @param op - operand String to check
+   * @return - is it a valid operand
    */
   private static boolean checkOperator(String op) {
     // Check that op is a String of length 1 from the set: + - / *.
@@ -82,9 +82,9 @@ public class FracCalc {
   /**
    * reduce() - a possibly improper fraction to proper form.
    *
-   * @param n
-   * @param d
-   * @return
+   * @param n - numerator
+   * @param d - denominator
+   * @return - String holding reduced form.
    */
   private static String reduce(int n, int d) {
     // TODO: implement fraction reduction.
