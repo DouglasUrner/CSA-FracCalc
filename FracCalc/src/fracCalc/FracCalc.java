@@ -172,23 +172,40 @@ public class FracCalc {
     }
 
     private static String formatResult(int w, int n, int d) {
-        boolean neg = false;
-        if (n < 0) {
-          neg = true;
-          n *= -1;
-        }
+      boolean neg = false;
+      String result = "";
 
-        if (n > d) {
-          w = n / d;
-          if (neg) {
-            w *= -1;
-          }
-          n = n % d;
-        }
-        if (w != 0)
-          return w + "_" + n + "/" + d;
-        else
-          return n + "/" + d;
+      if (n == 0)
+        return "0";
+
+      if (n < 0) {
+        neg = true;
+        n *= -1;
+      }
+
+      if (n >= d) {
+        w = n / d;
+        n = n % d;
+      }
+
+      if (neg) {
+        result += "-";
+      }
+
+      if (w > 0) {
+        result += w;
+        if (n > 0)
+          result += "_";
+      }
+
+      if (n > 0) {
+        result += reduce(n, d);
+      }
+
+      return result;
     }
 
+    private static String reduce(int n, int d) {
+      return n + "/" + d;
+    }
 }
