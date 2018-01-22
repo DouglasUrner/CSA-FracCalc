@@ -206,6 +206,14 @@ public class FracCalc {
     }
 
     private static String reduce(int n, int d) {
-      return n + "/" + d;
+      int nReduced = n;
+      int dReduced = d;
+      for (int i = 2; i <= n; i++) {
+        if (n % i == 0 && d % i == 0) {
+          nReduced = n / i;
+          dReduced = d / i;
+        }
+      }
+      return nReduced + "/" + dReduced;
     }
 }
