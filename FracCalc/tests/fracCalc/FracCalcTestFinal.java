@@ -7,6 +7,12 @@ import org.junit.Test;
 //Final fraccalc submission tests
 public class FracCalcTestFinal
 {
+    /*
+     * TODO: Fix the 6 passing tests (the ones that expect a result of 0).
+     * Note the tests pass when we are run out of FracCalcTestALL, but not
+     * when we run this set of tests by themselves.
+     */
+
     @Test public void testAdditionSimple1() {assertEquals("2/5", FracCalc.produceAnswer("1/5 + 1/5"));}
     @Test public void testAdditionSimple2() {assertEquals("4/5", FracCalc.produceAnswer("3/5 + 1/5"));}
     @Test public void testAdditionSimple3() {assertEquals("4_3/7", FracCalc.produceAnswer("1_1/7 + 3_2/7"));}
