@@ -116,8 +116,15 @@ public class FracCalc {
                 break;
 
             case '/':
-                resultNum = lsNum * commonDenom;
-                resultDenom = commonDenom * rsNum;
+                boolean neg = false;
+                if ((lsNum < 0 && rsNum >= 0) || (lsNum >= 0 && rsNum < 0)) {
+                  neg = true;
+                }
+                resultNum = Math.abs(lsNum) * commonDenom;
+                resultDenom = commonDenom * Math.abs(rsNum);
+                if (neg) {
+                  resultNum *= -1;
+                }
                 break;
 
             default:
@@ -165,12 +172,23 @@ public class FracCalc {
     }
 
     private static String formatResult(int w, int n, int d) {
-        String sign = "";
-//        if (n < 0) {
-//            sign = "-";
-//            n *= -1;
-//        }
-        return sign + w + "_" + n + "/" + d;
+        boolean neg = false;
+        if (n < 0) {
+          neg = true;
+          n *= -1;
+        }
+
+        if (n > d) {
+          w = n / d;
+          if (neg) {
+            w *= -1;
+          }
+          n = n % d;
+        }
+        if (w != 0)
+          return w + "_" + n + "/" + d;
+        else
+          return n + "/" + d;
     }
 
 }
