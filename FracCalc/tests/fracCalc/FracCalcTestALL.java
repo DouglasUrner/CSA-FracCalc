@@ -16,6 +16,11 @@ import org.junit.runners.Suite;
  * preceeding checkpoints.
  */
 
+/*
+ * TODO: figure out the apparent false positive in areFracsEqual().
+ * It happens when the expected result is 0.
+ */
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     FracCalcTestCheckpoint1.class,
