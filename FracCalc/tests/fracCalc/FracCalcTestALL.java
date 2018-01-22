@@ -13,7 +13,12 @@ import org.junit.runners.Suite;
  *
  * The test results will appear below, grouped by checkpoint. Your code should
  * be passing all of the tests for the current checkpoint and all of the
- * preceeding checkpoints.
+ * preceding checkpoints.
+ */
+
+/*
+ * TODO: figure out the apparent false positive in areFracsEqual().
+ * It happens when the expected result is 0.
  */
 
 @RunWith(Suite.class)
