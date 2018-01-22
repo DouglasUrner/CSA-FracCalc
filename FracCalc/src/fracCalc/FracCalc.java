@@ -86,29 +86,38 @@ public class FracCalc {
         int resultWhole = 0;
         int resultNum = 0;
         int resultDenom = 1;
+        int commonDenom;
+
+        if (lsDenom == rsDenom) {
+            commonDenom = lsDenom;
+        } else {
+            commonDenom = lsDenom * rsDenom;
+        }
+        resultDenom = commonDenom;
+
+        lsNum = normalizeNumerator(lsWhole, lsNum, lsDenom, rsDenom);
+        lsWhole = 0;
+
+        rsNum = normalizeNumerator(rsWhole, rsNum, rsDenom, lsDenom);
+        rsWhole = 0;
 
         switch (operator.toCharArray()[0]) {
             case '+':
-                resultWhole = lsWhole + rsWhole;
-                resultDenom = lsDenom * rsDenom;
-                resultNum = (lsNum * rsDenom) + (rsNum * lsDenom);
+                resultNum = lsNum + rsNum;
                 break;
 
             case '-':
-                resultWhole = lsWhole - rsWhole;
-                resultDenom = lsDenom * rsDenom;
-                resultNum = (lsNum * rsDenom) - (rsNum * lsDenom);
+                resultNum = lsNum - rsNum;
                 break;
 
             case '*':
-                //resultWhole = lsWhole * rsWhole;
-                resultWhole = 0;
-                int commonDenom = lsDenom * rsDenom;
+                resultNum = lsNum * rsNum;
                 resultDenom = commonDenom * commonDenom;
-                resultNum = ((lsWhole * lsDenom + lsNum) * rsDenom) * ((rsWhole * rsDenom + rsNum) * lsDenom);
                 break;
 
             case '/':
+                resultNum = lsNum * commonDenom;
+                resultDenom = commonDenom * rsNum;
                 break;
 
             default:
@@ -120,8 +129,48 @@ public class FracCalc {
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
+
+    /**
+     * normalizeNumerator() - given the components of a fraction and the other
+     * denominator calculate the numerator in terms of a common denominator.
+     *
+     * @param w - whole number part
+     * @param n - numerator
+     * @param d - denominator
+     * @param o - other denominator
+     * @return an integer representing the new numerator
+     */
+    private static int normalizeNumerator(int w, int n, int d, int o) {
+        boolean neg = false;
+        if (w < 0) {
+            neg = true;
+            w *= -1;
+        } else if (n < 0) {
+            neg = true;
+            n *= -1;
+        }
+
+        if (d != o) {
+            n *= o;
+            w *= d * o;
+            n += w;
+        } else {
+            n += w * d;
+        }
+
+        if (neg)
+            return n * -1;
+        else
+            return n;
+    }
+
     private static String formatResult(int w, int n, int d) {
-        return w + "_" + n + "/" + d;
+        String sign = "";
+//        if (n < 0) {
+//            sign = "-";
+//            n *= -1;
+//        }
+        return sign + w + "_" + n + "/" + d;
     }
 
 }
