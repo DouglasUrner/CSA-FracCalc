@@ -76,18 +76,18 @@ This method receives a single line of user input as its parameter (for
 example, “3_1/2 + 1/4"), and returns the answer (for example,
 “3_3/4”). *This method does not print anything*!
 
-2.  Your main() method must use a Scanner to receive input from the
-    user, call *produceAnswer* with that input, and then print the
-    answer that was returned by *produceAnswer*. Your main method
+2.  Your ```main()``` method must use a Scanner to receive input from the
+    user, call ```produceAnswer()``` with that input, and then print the
+    answer that was returned by ```produceAnswer()```. Your main method
     eventually is responsible for *repeatedly* reading input from the
-    user, calling produceAnswer(), printing the result, and ending once
+    user, calling ```produceAnswer()```, printing the result, and ending once
     the user types “quit”, although in the first checkpoint only one
     line of input needs to be read, with a single response printed to
     the console.
 
 3.  **Your code must pass the unit tests** for the checkpoint you’re
     submitting. If all the tests fail, that is a sign your code is
-    organized incorrectly. Fix before submitting to us.
+    organized incorrectly. Fix before submitting.
 
 Comments 
 ========
@@ -101,7 +101,7 @@ Comments
     to complete this assignment. Remember to review your notes and the
     textbook.
 
-    -   Scanner, indexOf, substring, etc.
+    -   ```Scanner(), indexOf(), substring()```, etc.
 
 Checkpoints
 ===========
@@ -115,17 +115,17 @@ Checkpoint 1: Parsing one line of input
 ---------------------------------------
 
 -   Your ```main()``` method creates a Scanner, reads one line of input, and
-    passes that input to *produceAnswer*.
+    passes that input to ```produceAnswer()```.
 
--   *produceAnswer* breaks up that line of input into three Strings: the
+-   ```produceAnswer()``` breaks up that line of input into three Strings: the
     first operand (fraction), the operator (+ - * /), and the second
     operand (fraction). Each of these Strings should be stored in
-    variables inside *produceAnswer*.
+    variables inside ```produceAnswer()```.
 
--   *produceAnswer* returns the second operand. For example,
-    produceAnswer(“1_2/3 + 4_5/6”) returns “4_5/6”.
+-   ```produceAnswer()``` returns the second operand. For example,
+    ```produceAnswer(“1_2/3 + 4_5/6”)``` returns “4_5/6”.
 
--   main() prints the result returned by *produceAnswer*
+-   ```main()``` prints the result returned by ```produceAnswer()```.
 
 **Checkpoint 2: Multiple lines of input, parsing fractions**
 
@@ -157,8 +157,6 @@ Checkpoint 1: Parsing one line of input
 
 ***Note:*** *your spelling, casing, and spacing must match these examples
 exactly, or the tests will fail and you will not receive full credit.*
-
-
 
 ***Note:*** *produceAnswer must parse* ***both*** *operands even though the
 returned String describes only the second one*
