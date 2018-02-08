@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class FracCalc {
 
   public static void main(String[] args) {
-    // TODO: loop processing equations until user quits
     // Set up and manage the calculator
     Scanner userInput = new Scanner(System.in);
 
