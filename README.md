@@ -127,7 +127,8 @@ Checkpoint 1: Parsing one line of input
 
 -   ```main()``` prints the result returned by ```produceAnswer()```.
 
-**Checkpoint 2: Multiple lines of input, parsing fractions**
+Checkpoint 2: Multiple lines of input, parsing fractions
+--------------------------------------------------------
 
 -   Your main() method now accepts input from the user multiple times
     (until the user types “quit”)
@@ -161,7 +162,8 @@ exactly, or the tests will fail and you will not receive full credit.*
 ***Note:*** *produceAnswer must parse* ***both*** *operands even though the
 returned String describes only the second one*
 
-**Checkpoint 3: Evaluation**
+Checkpoint 3: Evaluation
+------------------------
 
 -   *produceAnswer* must now evaluate the formula it is given
     (performing addition, subtraction, multiplication, and division,
