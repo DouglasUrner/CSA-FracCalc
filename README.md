@@ -205,7 +205,7 @@ working properly.*
 | **5_3/4 - -6_8/8 - 5_3/4** | 7          |
 
 1. Error Handling
------------------
+   --------------
 
 -   This extra credit will be awarded for calculators that do not crash
     when erroneous input is provided, but instead print useful error
