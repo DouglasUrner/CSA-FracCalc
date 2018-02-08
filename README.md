@@ -189,7 +189,7 @@ Extra Credit
 working properly.*
 
 1. Multiple Operations 
- ---------------------
+   ---------------------
 
 -   This extra credit will be awarded for calculators that can take in
     arbitrarily many values and operators. This will only be tested with
