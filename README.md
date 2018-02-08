@@ -188,10 +188,9 @@ Extra Credit
 *Do not spend time on extra credit until you have everything else
 working properly.*
 
-1. Multiple Operations 
-   -------------------
+## 1. Multiple Operations 
 
--   This extra credit will be awarded for calculators that can take in
+*   This extra credit will be awarded for calculators that can take in
     arbitrarily many values and operators. This will only be tested with
     compatible operations such that all equations are evaluated from
     left to right, in the order they appear (i.e. you will not need to
