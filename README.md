@@ -203,18 +203,17 @@ working properly.*
 | **-1/2 * 4 + 3/4**         | -1_1/4     |
 | **5_3/4 - -6_8/8 - 5_3/4** | 7          |
 
-1. Error Handling
-   --------------
+## 1. Error Handling
 
--   This extra credit will be awarded for calculators that do not crash
+*   This extra credit will be awarded for calculators that do not crash
     when erroneous input is provided, but instead print useful error
     messages. Any error encountered based on user input should print
     “ERROR: ” to the screen followed by an informative error message.
 
-| **Input**    | **Output**                            |
-|--------------|---------------------------------------|
-| **1/0 + 1**  | ERROR: Cannot divide by zero.         |
-| **1 ++ 2**   | ERROR: Input is in an invalid format. |
+    | **Input**    | **Output**                            |
+    |--------------|---------------------------------------|
+    | **1/0 + 1**  | ERROR: Cannot divide by zero.         |
+    | **1 ++ 2**   | ERROR: Input is in an invalid format. |
 
 Grading Breakdown 
 =================
