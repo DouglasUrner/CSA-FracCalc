@@ -135,30 +135,30 @@ Checkpoint 2: Multiple lines of input, parsing fractions
 --------------------------------------------------------
 
 -   Your ```main()``` method now accepts input from the user multiple times
-    (until the user types “quit”)
+    (until the user types “quit”).
 
 -   For each line of input, main calls ```produceAnswer()``` and prints the
-    returned result
+    returned result.
 
 -   This time, ```produceAnswer()``` must further parse each operand into 3
     integer variables, one each for the numerator, denominator, and
-    whole ngmber portion (for mixed fractions or integers). ***Note that there are
+    whole number portion (for mixed fractions or integers). ***Note that there are
     cases where not all 3 of these components are present (see below).***
 
--   ```produceAnswer()``` now must demonstrate you have parsed fractions
+-   ```produceAnswer()``` now must demonstrate that you have parsed the fractions
     properly by returning a string that describes each component of the
     second operand: the whole number portion (or 0 if not specified),
     the numerator (or 0 if not specified), and the denominator (or 1 if
     not specified). Examples:
 
-    -   ```produceAnswer("5_3/4 - 6_5/8")``` returns "whole:6 numerator:5
-        denominator:8"
+    -   ```produceAnswer("5_3/4 - 6_5/8")``` returns **"whole:6 numerator:5
+        denominator:8"**
 
-    -   ```produceAnswer("-3/7 - 20")``` returns "whole:20 numerator:0
-        denominator:1"
+    -   ```produceAnswer("-3/7 - 20")``` returns **"whole:20 numerator:0
+        denominator:1"**
 
-    -   ```produceAnswer(“-32 - 27/21”)``` returns "whole:0 numerator:27
-        denominator:21"
+    -   ```produceAnswer(“-32 - 27/21”)``` returns **"whole:0 numerator:27
+        denominator:21"**
 
 ***Note:*** *your spelling, casing, and spacing must match these examples
 exactly, or the tests will fail and you will not receive full credit.*
