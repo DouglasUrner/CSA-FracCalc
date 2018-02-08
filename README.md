@@ -188,8 +188,8 @@ Extra Credit
 *Do not spend time on extra credit until you have everything else
 working properly.*
 
-1.  Multiple Operations 
-    -------------------
+1. Multiple Operations 
+----------------------
 
 -   This extra credit will be awarded for calculators that can take in
     arbitrarily many values and operators. This will only be tested with
@@ -204,8 +204,8 @@ working properly.*
 | **-1/2 * 4 + 3/4**         | -1_1/4     |
 | **5_3/4 - -6_8/8 - 5_3/4** | 7          |
 
-2.   Error Handling
-     ---------------
+1. Error Handling
+-----------------
 
 -   This extra credit will be awarded for calculators that do not crash
     when erroneous input is provided, but instead print useful error
