@@ -55,7 +55,7 @@ Examples
 | **0 * 25_462/543** | 0          | Remember to check for border/special cases. |
 
 Use the included unit tests (described below) to thoroughly check your
-program, well beyond the above examples. We use these same tests to
+program, well beyond the above examples. The same tests are used to
 grade your project.
 
 Code Organization 
@@ -96,6 +96,10 @@ Comments
 
 -   Use the unit tests! You control your destiny by ensuring your grade
     before you submit to us.
+    
+-   The unit tests automatically accomodate the output format changes as you
+    move through the checkpoints - if your code is working correctly the tests
+    for checkpoint 1 will continue to pass as you move on to checkpoint 2.
 
 -   The topics we have been learning in class are designed to allow you
     to complete this assignment. Remember to review your notes and the
