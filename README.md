@@ -196,14 +196,14 @@ working properly.*
     left to right, in the order they appear (i.e. you will not need to
     worry about order of operations).
 
-| **Input**                  | **Output** |
-|----------------------------|------------|
-| **1 + 2 + 3**              | 6          |
-| **3/4 * 4**                | 3          |
-| **-1/2 * 4 + 3/4**         | -1_1/4     |
-| **5_3/4 - -6_8/8 - 5_3/4** | 7          |
+    | **Input**                  | **Output** |
+    |----------------------------|------------|
+    | **1 + 2 + 3**              |  6         |
+    | **3/4 * 4**                |  3         |
+    | **-1/2 * 4 + 3/4**         | -1_1/4     |
+    | **5_3/4 - -6_8/8 - 5_3/4** |  7         |
 
-## 1. Error Handling
+## 2. Error Handling
 
 *   This extra credit will be awarded for calculators that do not crash
     when erroneous input is provided, but instead print useful error
