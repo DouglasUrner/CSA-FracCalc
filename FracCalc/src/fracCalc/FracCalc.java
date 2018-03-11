@@ -145,7 +145,12 @@ public class FracCalc {
   }
 
   private static String reduceFractionToString(int n, int d) {
-    return n + "/" + d;
+  	int sign = (n < 0) ? -1 : 1;
+  	int whole = Math.abs(n) / d;
+  	int num = Math.abs(n) % d;
+  	int denom = d;
+
+    return sign * (whole * denom + num) + "/" + denom;
   }
 
   private static String formatForCheckpoint2(String s) {
