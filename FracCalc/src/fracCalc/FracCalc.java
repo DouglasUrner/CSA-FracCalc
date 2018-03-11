@@ -89,14 +89,7 @@ public class FracCalc {
       resultNumerator = lN;
       resultDenominator = rN;
     }
-    return fractionString(resultNumerator, resultDenominator);
-  }
-
-  private static String fractionString(int n, int d) {
-    if (reduceFraction(n, d, parts.numerator) == 0)
-      return Integer.toString(reduceFraction(n, d, parts.whole));
-    else
-      return reduceFraction(n, d, parts.numerator) + "/" + reduceFraction(n, d, parts.denominator);
+    return reduceFractionToString(resultNumerator, resultDenominator);
   }
 
   // TODO: Use the space below for any helper methods that you need.
@@ -151,26 +144,8 @@ public class FracCalc {
     return value;
   }
 
-  private static int reduceFraction(int n, int d, parts get) {
-    int value = 0;
-
-    switch (get) {
-      case whole:
-        value = n / d;
-        break;
-
-      case numerator:
-        value = n;
-        break;
-
-      case denominator:
-        value = d;
-        break;
-
-      default:
-        break;
-    }
-    return value;
+  private static String reduceFractionToString(int n, int d) {
+    return n + "/" + d;
   }
 
   private static String formatForCheckpoint2(String s) {
