@@ -145,13 +145,31 @@ public class FracCalc {
   }
 
   private static String reduceFractionToString(int n, int d) {
-  	int sign = (n < 0) ? -1 : 1;
-  	int whole = Math.abs(n) / d;
-  	int num = Math.abs(n) % d;
+  	int sign = ((n > 0 && d > 0) || (n < 0 && d < 0)) ? 1 : -1;
+  	n = Math.abs(n);
+  	d = Math.abs(d);
+  	int whole = n / d;
+  	int num = n % d;
   	int denom = d;
 
-    return sign * (whole * denom + num) + "/" + denom;
+  	num /= gcf(num, denom);
+  	denom /= gcf(num, denom);
+
+  	if (whole == 0 && num == 0) {
+			return Integer.toString(0);
+		} else if (whole > 0 && num == 0) {
+  		return Integer.toString(sign * whole);
+		} else if (whole > 0) {
+  		return sign * whole + "_" + num + "/" + denom;
+		} else {
+			return sign * num + "/" + denom;
+		}
   }
+
+  private static int gcf(int n, int d) {
+  	int gcf = 1;
+  	return gcf;
+	}
 
   private static String formatForCheckpoint2(String s) {
     String result = "whole:" + parseFraction(s, parts.whole);
