@@ -177,18 +177,18 @@ public class FractionTest {
 	@Test
 	public void FractionTestGcf1() {
 		Fraction f = new Fraction("1 2/3");
-		assertEquals(1, Fraction.gcf(f.numerator, f.denominator));
+		assertEquals(1, Fraction.gcf(f.numerator(), f.denominator()));
 	}
 
 	@Test
 	public void FractionTestGcf2() {
 		Fraction f = new Fraction("1 2/3");
-		assertEquals(1, Fraction.gcf(f.numerator(), f.denominator));
+		assertEquals(1, Fraction.gcf(f.numerator(), f.denominator()));
 	}
 
 	@Test
 	public void FractionTestGcf3() {
 		Fraction f = new Fraction("42/21");
-		assertEquals(21, Fraction.gcf(f.numerator, f.denominator));
+		assertEquals(21, Fraction.gcf(f.numerator(), f.denominator()));
 	}
 }

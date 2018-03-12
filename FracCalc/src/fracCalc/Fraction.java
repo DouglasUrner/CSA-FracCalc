@@ -1,10 +1,10 @@
 package fracCalc;
 
 public class Fraction {
-	int sign = 1;
-	int whole = 0;
-	int numerator = 0;
-	int denominator = 1;
+	private int sign = 1;
+	private int whole = 0;
+	private int numerator = 0;
+	private int denominator = 1;
 
 	public Fraction(String str) {
 		int begin = 0;

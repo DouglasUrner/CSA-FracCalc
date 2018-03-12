@@ -44,24 +44,22 @@ public class FracCalc {
     // a String representing the answer as a whole number and proper
     // fraction.
 
-    // Split the input into three tokens: left-operand operator right-operand.
-
 		String[] tokens = input.split(" ");
+		if ((tokens.length < 3) || ((tokens.length - 3) % 2 != 0)) {
+			throw new IllegalArgumentException("Error: missing operand or operator in '" + input + "'");
+		}
 
 		Fraction result = compute(tokens[0], tokens[1], tokens[2]);
 
 		int tokensLeft = tokens.length - 3;
 		int startAt = 3;
-		if (tokensLeft % 2 == 0) {
-			while (tokensLeft > 0) {
-				result = compute(result.toString(), tokens[startAt], tokens[startAt + 1]);
-				tokensLeft -= 2;
-				startAt += 2;
-			}
+
+		while (tokensLeft > 0) {
+			result = compute(result.toString(), tokens[startAt], tokens[startAt + 1]);
+			tokensLeft -= 2;
+			startAt += 2;
 		}
 
-		// return rightOperand;
-    // return formatForCheckpoint2(rightOperand);
     return result.toString();
   }
 
@@ -90,13 +88,13 @@ public class FracCalc {
 				break;
 
 			case "/":
+				if (r.numerator() == 0) { throw new IllegalArgumentException("ERROR: attempt to divide by zero"); }
 				tempN = (l.sign() * l.numerator()) * (r.sign() * r.denominator());
 				tempD = l.denominator() * r.numerator();
 				break;
 
 				default:
-					throw new IllegalArgumentException("Unrecognized operator '" + op + "'");
-
+					throw new IllegalArgumentException("ERROR: Unrecognized operator '" + op + "'");
     }
 
 		return new Fraction((tempN < 0 ? '-' : '+'), 0, tempN, tempD);
