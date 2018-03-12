@@ -10,6 +10,7 @@ public class FracCalc {
 
     while (true) {
       // Get equations to process
+			System.out.print("> ");
       String eq = stdin.nextLine();
 
       if (eq.equalsIgnoreCase("quit")) {
@@ -38,22 +39,24 @@ public class FracCalc {
    *    e.g. return ==> "1_1/4"
    */
   public static String produceAnswer(String input) {
-    // TODO: validate input tokens
-
-    // Calculate the result of the expression in input and return a
-    // a String representing the answer as a whole number and proper
-    // fraction.
+  	/**
+     * Calculate the result of the expression in input and return a
+		 * a String representing the answer as a whole number and proper
+     * fraction.
+		 */
 
 		String[] tokens = input.split(" ");
 		if ((tokens.length < 3) || ((tokens.length - 3) % 2 != 0)) {
 			throw new IllegalArgumentException("Error: missing operand or operator in '" + input + "'");
 		}
 
+		// Do the first hunk "by hand."
 		Fraction result = compute(tokens[0], tokens[1], tokens[2]);
 
 		int tokensLeft = tokens.length - 3;
 		int startAt = 3;
 
+		// Loop over anything that remains using the previous result as the left operand.
 		while (tokensLeft > 0) {
 			result = compute(result.toString(), tokens[startAt], tokens[startAt + 1]);
 			tokensLeft -= 2;
@@ -99,8 +102,6 @@ public class FracCalc {
 
 		return new Fraction((tempN < 0 ? '-' : '+'), 0, tempN, tempD);
   }
-
-  // TODO: Use the space below for any helper methods that you need.
 
 	private static String formatForCheckpoint1(Fraction f) {
   	return f.toString(true);
