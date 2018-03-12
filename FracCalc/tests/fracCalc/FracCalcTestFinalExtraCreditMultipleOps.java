@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FracCalcTestFinalExtraCredit {
+public class FracCalcTestFinalExtraCreditMultipleOps {
 
   // Extra credit only
   @Test public void multipleOps1() {assertEquals("-20/21", FracCalc.produceAnswer("1_2/3 + 5/4 + 5_5/4 - 2_2/4 / -5_6/3"));}
