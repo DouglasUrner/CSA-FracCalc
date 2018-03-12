@@ -39,7 +39,7 @@ public class FracCalc {
    *    e.g. return ==> "1_1/4"
    */
   public static String produceAnswer(String input) {
-  	/**
+  	/*
      * Calculate the result of the expression in input and return a
 		 * a String representing the answer as a whole number and proper
      * fraction.
@@ -69,10 +69,9 @@ public class FracCalc {
   private static Fraction compute(String left, String op, String right) {
   	Fraction l = new Fraction(left);
   	Fraction r = new Fraction(right);
-  	Fraction result;
 
-  	int tempN = 0;
-    int tempD = 1;
+  	int tempN;
+    int tempD;
 
     switch (op) {
 			case "+":
@@ -103,7 +102,7 @@ public class FracCalc {
 		return new Fraction((tempN < 0 ? '-' : '+'), 0, tempN, tempD);
   }
 
-	private static String formatForCheckpoint1(Fraction f) {
+/*	private static String formatForCheckpoint1(Fraction f) {
   	return f.toString(true);
 	}
 
@@ -112,5 +111,5 @@ public class FracCalc {
     result += " numerator:" + f.numerator(true);
     result += " denominator:" + f.denominator();
     return result;
-  }
+  }*/
 }

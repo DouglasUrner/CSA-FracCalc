@@ -6,11 +6,11 @@ public class FracCalc {
 
   public static void main(String[] args) {
     // Set up and manage the calculator
-    Scanner userInput = new Scanner(System.in);
+    Scanner stdin = new Scanner(System.in);
 
     while (true) {
       // Get equations to process
-      String eq = userInput.nextLine();
+      String eq = stdin.nextLine();
 
       if (eq.equalsIgnoreCase("quit")) {
         // We're done.
