@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class FracCalc {
 
   public static void main(String[] args) {
-    // TODO: loop processing equations until user quits
     // Set up and manage the calculator
     Scanner stdin = new Scanner(System.in);
 
@@ -46,17 +45,27 @@ public class FracCalc {
     // fraction.
 
     // Split the input into three tokens: left-operand operator right-operand.
-    Scanner tokens = new Scanner(input);
-    String leftOperand = tokens.next();
-    String operator = tokens.next();
-    String rightOperand = tokens.next();
 
-    // return rightOperand;
+		String[] tokens = input.split(" ");
+
+		Fraction result = compute(tokens[0], tokens[1], tokens[2]);
+
+		int tokensLeft = tokens.length - 3;
+		int startAt = 3;
+		if (tokensLeft % 2 == 0) {
+			while (tokensLeft > 0) {
+				result = compute(result.toString(), tokens[startAt], tokens[startAt + 1]);
+				tokensLeft -= 2;
+				startAt += 2;
+			}
+		}
+
+		// return rightOperand;
     // return formatForCheckpoint2(rightOperand);
-    return compute(leftOperand, operator, rightOperand);
+    return result.toString();
   }
 
-  private static String compute(String left, String op, String right) {
+  private static Fraction compute(String left, String op, String right) {
   	Fraction l = new Fraction(left);
   	Fraction r = new Fraction(right);
   	Fraction result;
@@ -84,21 +93,13 @@ public class FracCalc {
 				tempN = (l.sign() * l.numerator()) * (r.sign() * r.denominator());
 				tempD = l.denominator() * r.numerator();
 				break;
-    }
-//    if (op.equals("+")) {
-//      resultNumerator = l.sign() * l.numerator() * r.denominator() + r.numerator() * l.denominator();
-//    } else if (op.equals("-")) {
-//			resultNumerator = left.numerator() * right.denominator() - right.numerator() * left.denominator();
-//    } else if (op.equals("*")) {
-//      resultNumerator = lN * rN;
-//      resultDenominator = commonD * commonD;
-//    } else if (op.equals("/")) {
-//      resultNumerator = lN;
-//      resultDenominator = rN;
-//    }
-		result = new Fraction((tempN < 0 ? '-' : '+'), 0, tempN, tempD);
 
-		return result.toString();
+				default:
+					throw new IllegalArgumentException("Unrecognized operator '" + op + "'");
+
+    }
+
+		return new Fraction((tempN < 0 ? '-' : '+'), 0, tempN, tempD);
   }
 
   // TODO: Use the space below for any helper methods that you need.
