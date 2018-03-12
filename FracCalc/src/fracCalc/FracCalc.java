@@ -56,132 +56,61 @@ public class FracCalc {
     return compute(leftOperand, operator, rightOperand);
   }
 
-  private static String compute(String l, String op, String r) {
-    int lW = parseFraction(l, parts.whole);
-    int lN = parseFraction(l, parts.numerator);
-    int lD = parseFraction(l, parts.denominator);
-    int lSign = (lW < 0 || lN < 0) ? -1 : 1;
-    lW = Math.abs(lW);
-    lN = Math.abs(lN);
+  private static String compute(String left, String op, String right) {
+  	Fraction l = new Fraction(left);
+  	Fraction r = new Fraction(right);
+  	Fraction result;
 
-    int rW = parseFraction(r, parts.whole);
-    int rN = parseFraction(r, parts.numerator);
-    int rD = parseFraction(r, parts.denominator);
-    int rSign = (rW < 0 || rN < 0) ? -1 : 1;
-    rW = Math.abs(rW);
-    rN = Math.abs(rN);
+  	int tempN = 0;
+    int tempD = 1;
 
-    int commonD = lD * rD;
-    lN = (lN * rD + lW * commonD) * lSign;
-    rN = (rN * lD + rW * commonD) * rSign;
+    switch (op) {
+			case "+":
+				tempN = (l.sign() * l.numerator() * r.denominator()) + (r.sign() * r.numerator() * l.denominator());
+				tempD = l.denominator() * r.denominator();
+				break;
 
-    int resultNumerator = 0;
-    int resultDenominator = commonD;
+			case "-":
+				tempN = (l.sign() * l.numerator() * r.denominator()) - (r.sign() * r.numerator() * l.denominator());
+				tempD = l.denominator() * r.denominator();
+				break;
 
-    if (op.equals("+")) {
-      resultNumerator = lN + rN;
-    } else if (op.equals("-")) {
-      resultNumerator = lN - rN;
-    } else if (op.equals("*")) {
-      resultNumerator = lN * rN;
-      resultDenominator = commonD * commonD;
-    } else if (op.equals("/")) {
-      resultNumerator = lN;
-      resultDenominator = rN;
+			case "*":
+				tempN = (l.sign() * l.numerator()) * (r.sign() * r.numerator());
+				tempD = l.denominator() * r.denominator();
+				break;
+
+			case "/":
+				tempN = (l.sign() * l.numerator()) * (r.sign() * r.denominator());
+				tempD = l.denominator() * r.numerator();
+				break;
     }
-    return reduceFractionToString(resultNumerator, resultDenominator);
+//    if (op.equals("+")) {
+//      resultNumerator = l.sign() * l.numerator() * r.denominator() + r.numerator() * l.denominator();
+//    } else if (op.equals("-")) {
+//			resultNumerator = left.numerator() * right.denominator() - right.numerator() * left.denominator();
+//    } else if (op.equals("*")) {
+//      resultNumerator = lN * rN;
+//      resultDenominator = commonD * commonD;
+//    } else if (op.equals("/")) {
+//      resultNumerator = lN;
+//      resultDenominator = rN;
+//    }
+		result = new Fraction((tempN < 0 ? '-' : '+'), 0, tempN, tempD);
+
+		return result.toString();
   }
 
   // TODO: Use the space below for any helper methods that you need.
 
-  enum parts { whole, numerator, denominator }
-
-  /**
-   * parseFraction(String f, parts get)
-   *
-   * Return the component of the fraction requested by the enum get.
-   *
-   * @param f   - String holding the fraction
-   * @param get - member of enum parts specifying the component to get
-   * @return    - int value of the component
-   */
-  private static int parseFraction(String f, parts get) {
-    int value = 0;
-
-    int underscore = f.indexOf("_");
-    int slash = f.indexOf("/");
-
-    switch (get) {
-      case whole:
-        if (underscore == -1 && slash == -1) {
-          // Only a whole number is present.
-          value = Integer.parseInt(f);
-        } else if (underscore > -1) {
-          // A fraction is also present.
-          value = Integer.parseInt(f.substring(0, underscore));
-        }
-        break;
-
-      case numerator:
-        if (underscore == -1 && slash > -1) {
-          // Only a fraction is present.
-          value = Integer.parseInt(f.substring(0, slash));
-        } else if (underscore > -1 && slash > -1) {
-          // Whole number part is also present.
-          value = Integer.parseInt(f.substring(underscore + 1, slash));
-        }
-        break;
-
-      case denominator:
-        if (slash > -1) {
-          // A fraction part is present.
-          value = Integer.parseInt(f.substring(slash + 1));
-        } else {
-          value = 1;
-        }
-        break;
-    }
-    return value;
-  }
-
-  private static String reduceFractionToString(int n, int d) {
-  	int sign = ((n > 0 && d > 0) || (n < 0 && d < 0)) ? 1 : -1;
-  	n = Math.abs(n);
-  	d = Math.abs(d);
-  	int whole = n / d;
-  	int num = n % d;
-  	int denom = d;
-  	int gcf = gcf(num, denom);
-
-  	num /= gcf;
-  	denom /= gcf;
-
-  	if (whole == 0 && num == 0) {
-			return Integer.toString(0);
-		} else if (whole > 0 && num == 0) {
-  		return Integer.toString(sign * whole);
-		} else if (whole > 0) {
-  		return sign * whole + "_" + num + "/" + denom;
-		} else {
-			return sign * num + "/" + denom;
-		}
-  }
-
-  private static int gcf(int n, int d) {
-  	int gcf = 1;
-
-		for (int i = 2; i <= n; i++) {
-			if ((n % i == 0) && (d % i == 0)) {
-				gcf = i;
-			}
-		}
-  	return gcf;
+	private static String formatForCheckpoint1(Fraction f) {
+  	return f.toString(true);
 	}
 
-  private static String formatForCheckpoint2(String s) {
-    String result = "whole:" + parseFraction(s, parts.whole);
-    result += " numerator:" + parseFraction(s, parts.numerator);
-    result += " denominator:" + parseFraction(s, parts.denominator);
+  private static String formatForCheckpoint2(Fraction f) {
+    String result = "whole:" + f.whole();
+    result += " numerator:" + f.numerator(true);
+    result += " denominator:" + f.denominator();
     return result;
   }
 }
