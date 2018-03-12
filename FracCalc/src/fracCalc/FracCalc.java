@@ -151,9 +151,10 @@ public class FracCalc {
   	int whole = n / d;
   	int num = n % d;
   	int denom = d;
+  	int gcf = gcf(num, denom);
 
-  	num /= gcf(num, denom);
-  	denom /= gcf(num, denom);
+  	num /= gcf;
+  	denom /= gcf;
 
   	if (whole == 0 && num == 0) {
 			return Integer.toString(0);
@@ -168,6 +169,12 @@ public class FracCalc {
 
   private static int gcf(int n, int d) {
   	int gcf = 1;
+
+		for (int i = 2; i <= n; i++) {
+			if ((n % i == 0) && (d % i == 0)) {
+				gcf = i;
+			}
+		}
   	return gcf;
 	}
 
