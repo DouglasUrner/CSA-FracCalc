@@ -2,7 +2,7 @@ package fracCalc;
 
 import org.junit.Test;
 
-public class FracCalcTestFinalExtraCreditInputErrors {
+public class FracCalcTestExtraCreditInputErrors {
 	@Test(expected = IllegalArgumentException.class)
 	public void InputErrors1() {
 		FracCalc.produceAnswer("2 + 1 1/2");

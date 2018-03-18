@@ -31,9 +31,9 @@ import org.junit.runners.Suite;
     FracCalcTestCheckpoint2.class,
     FracCalcTestCheckpoint3.class,
     FracCalcTestFinal.class,
-    FracCalcTestFinalExtraCreditInputErrors.class,
-    FracCalcTestFinalExtraCreditMultipleOps.class,
-    FracCalcTestFinalExtraCreditRelaxedInput.class
+    FracCalcTestExtraCreditInputErrors.class,
+    FracCalcTestExtraCreditMultipleOps.class,
+    //FracCalcTestExtraCreditRelaxedInput.class
 })
 
 public class FracCalcTestALL
